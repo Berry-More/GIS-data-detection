@@ -18,7 +18,10 @@ def running_mean(x, N):
     return list(out)
 
 
-def get_borders(data, step, diff, filter_value=1):
+def get_borders(data, step=0, diff=5, filter_value=1):
+    
+    if step == 0:
+        step = int(len(data) * 0.04)
     
     data = running_mean(data, filter_value)
     all_mean = abs(mean(data))
